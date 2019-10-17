@@ -1,10 +1,8 @@
 package com.testtravis.testtravis;
 
 
-import org.junit.Test;
 
 public class CalculatorTest {
-    @Test
     public void returnCalcul(){
         long num1=1;
         long num2=2;
