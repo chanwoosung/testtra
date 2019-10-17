@@ -1,7 +1,3 @@
-plugins {
-    id 'io.spring.dependency-management' version '1.0.8.RELEASE'
-    id 'java'
-}
 
 group = 'com.testtravis'
 version = '0.0.1-SNAPSHOT'
