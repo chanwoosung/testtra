@@ -33,6 +33,10 @@ deploy:
     skip_cleanup: true
     local_dir: deploy
     wait-until-deployed: true
+    application: deploytest
+    deployment_group: AwsCodeDeploy
+    key: springboot-webservice.zip
+    bundle_type: zip
     on:
       repo: chanwoosung/testtra #Github 주소
       branch: master
