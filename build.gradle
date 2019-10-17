@@ -1,3 +1,16 @@
+buildscript {
+    ext {
+        springBootVersion = '2.0.4.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        //추가된 것
+        classpath("io.spring.gradle:dependency-management-plugin:1.0.4.RELEASE")
+    }
+}
 
 group = 'com.testtravis'
 version = '0.0.1-SNAPSHOT'
