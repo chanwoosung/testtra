@@ -17,3 +17,25 @@ cache:
 
 # clean 후 Build (Build시 자동으로 test 수행)
 script: "./gradlew clean build"
+before_deploy:
+  - zip -r springboot-webservice *
+  - mkdir -p deploy
+  - mv springboot-webservice.zip deploy/springboot-webservice.zip
+
+deploy:
+  - provider: s3
+    access_key_id: $AWS_ACCESS_KEY # Travis repo settings에 설정된 값
+    secret_access_key: $AWS_SECRET_KEY # Travis repo settings에 설정된 값
+    bucket: springboot-test-aws-deploy # 6-3-3에서 생성한 S3 버킷
+    region: ap-northeast-2
+    skip_cleanup: true
+    acl: public_read
+    wait-until-deployed: true
+    on:
+      repo: chanwoosung/testtra #Github 주소
+      branch: master
+
+notifications:
+  email:
+    recipients:
+      - gansing32@gmail.com
