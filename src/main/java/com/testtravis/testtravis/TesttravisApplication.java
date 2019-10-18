@@ -1,7 +1,7 @@
 package com.testtravis.testtravis;
 
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 
 @SpringBootApplication
 public class TesttravisApplication {
@@ -9,7 +9,8 @@ public class TesttravisApplication {
             + "classpath:application.yml,"
             + "/app/config/springboot-webservice/real-application.yml";
     public static void main(String[] args) {
-        SpringApplication.run(TesttravisApplication.class, args);
+        new SpringApplicationBuilder(TesttravisApplication.class)
+                .properties(APPLICATION_LOCATIONS)
+                .run(args);
     }
-
 }
